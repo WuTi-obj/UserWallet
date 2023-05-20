@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wuti.wallet.mapper.WalletMapper">
+
+    <!--public void consumeAmount(Integer userId, BigDecimal amount);  //消费-->
+    <update id="consumeAmount">
+        UPDATE wallet SET balance = balance - #{amount} WHERE user_id = #{userId}
+    </update>
+
+    <!--public void refundAmount(Integer userId, BigDecimal amount);   //退款-->
+    <update id="refundAmount">
+        UPDATE wallet SET balance = balance + #{amount} WHERE user_id = #{userId}
+    </update>
+
+</mapper>
